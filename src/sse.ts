@@ -2,21 +2,25 @@ console.log("sse log!!!");
 
 
 let filter = function(ch:any, obj:any) { 
-
-    var txt:any;
+    
+    console.log("ch" + ch);
+    console.log("userId" + obj.userId);
+    
+    var txt:any = "<tr>"; 
     if(ch == "users" && obj.userId%2 == 1) {   
         txt += "<td>" + obj.userId + "</td>";
         txt += "<td>" + obj.userFirstName + "</td>";
-        txt += "<td>" + obj.userLastName + "</td>";
-        txt += "</tr>";                    
-    }else{
+        txt += "<td>" + obj.userLastName + "</td>";                  
+    }
+    if(ch ==  "main" && obj.userId%2 == 0){
         txt += "<td>" + obj.userId + "</td>";
         txt += "<td>" + obj.userFirstName + "</td>";
         txt += "<td>" + obj.userLastName + "</td>";
-        txt += "</tr>";       
     }
-return txt;
- };
+    txt += "</tr>"; 
+    return txt;
+    }
+
 
 if(typeof(EventSource) !== "undefined") {
     var url_string = window.location.href; //window.location.href

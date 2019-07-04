@@ -1,19 +1,20 @@
 "use strict";
 console.log("sse log!!!");
 let filter = function (ch, obj) {
-    var txt;
+    console.log("ch" + ch);
+    console.log("userId" + obj.userId);
+    var txt = "<tr>";
     if (ch == "users" && obj.userId % 2 == 1) {
         txt += "<td>" + obj.userId + "</td>";
         txt += "<td>" + obj.userFirstName + "</td>";
         txt += "<td>" + obj.userLastName + "</td>";
-        txt += "</tr>";
     }
-    else {
+    if (ch == "main" && obj.userId % 2 == 0) {
         txt += "<td>" + obj.userId + "</td>";
         txt += "<td>" + obj.userFirstName + "</td>";
         txt += "<td>" + obj.userLastName + "</td>";
-        txt += "</tr>";
     }
+    txt += "</tr>";
     return txt;
 };
 if (typeof (EventSource) !== "undefined") {

@@ -1,26 +1,22 @@
 "use strict";
 console.log("sse log!!!");
-
-
-function filter(ch,obj){
+let filter = function (ch, obj) {
     console.log("ch" + ch);
     console.log("userId" + obj.userId);
-
-    var txt = "<tr>"; 
-        if(ch == "users" && obj.userId%2 == 1) {   
-            txt += "<td>" + obj.userId + "</td>";
-            txt += "<td>" + obj.userFirstName + "</td>";
-            txt += "<td>" + obj.userLastName + "</td>";                  
-        }
-        if(ch ==  "main" && obj.userId%2 == 0){
-            txt += "<td>" + obj.userId + "</td>";
-            txt += "<td>" + obj.userFirstName + "</td>";
-            txt += "<td>" + obj.userLastName + "</td>";
-        }
-        txt += "</tr>"; 
-    return txt;
+    var txt = "<tr>";
+    if (ch == "users" && obj.userId % 2 == 1) {
+        txt += "<td>" + obj.userId + "</td>";
+        txt += "<td>" + obj.userFirstName + "</td>";
+        txt += "<td>" + obj.userLastName + "</td>";
     }
-
+    if (ch == "main" && obj.userId % 2 == 0) {
+        txt += "<td>" + obj.userId + "</td>";
+        txt += "<td>" + obj.userFirstName + "</td>";
+        txt += "<td>" + obj.userLastName + "</td>";
+    }
+    txt += "</tr>";
+    return txt;
+};
 if (typeof (EventSource) !== "undefined") {
     var url_string = window.location.href; //window.location.href
     var url = new URL(url_string);
@@ -39,7 +35,7 @@ if (typeof (EventSource) !== "undefined") {
         }
         txt += "</table>";
         document.getElementById("result").innerHTML += txt;
-    }
+    };
 }
 else {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
