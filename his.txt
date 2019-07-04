@@ -1,0 +1,26 @@
+  392  npm install -g eslint
+  393  bower install purescript-math --save
+  399  bower install purescript-numbers
+  404  bower install purescript-server-sent-events
+  405  bower install purescript-server-sent-events
+  407  bower install purescript-server-sent-events
+  414  bower install purescript-folds
+  416  bower install purescript-lists
+  417  bower install purescript-monad-control
+  419  bower install purescript-eff
+  421  bower install purescript-eff
+  423  bower install purescript-run 
+  504  npm install typescript
+  505  npm install - D @types/node
+  506  npm install -D @types/node
+  514  npm install -D ts-node
+  518  npm install -D ts-node-dev
+  523  npm install -D rimraf npm-run-all
+  606  npm install sse-nodejs
+  607  npm install express-sse-middleware
+  608  npm install express
+  610  npm install @types/express
+  643  npm install rxjs
+  648  npm install rxjs
+  681  history |grep install>> his.txt
+  682  history |grep install > his.txt

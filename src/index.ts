@@ -25,6 +25,7 @@ source$.subscribe(console.log);
 
 app.get('/demo', (req: any, res: any) => {
   const sse = res.sse();
+  var testjson = '[{"userId":1,"userFirstName":"Isaac","userLastName":"Newton"},{"userId":2,"userFirstName":"Albert","userLastName":"Einstein"}]';
   console.log('get1 sse :'+sse);
   const conn$ = interval(1000)
     .pipe(map(String))
@@ -32,7 +33,9 @@ app.get('/demo', (req: any, res: any) => {
       //sse.send.bind(sse)
       (ev: any ) => {
         console.log('get1 enew Date():'+new Date());
-        sse.send(new Date().toLocaleString());
+        console.log('testjson:'+testjson);
+       // sse.send(new Date().toLocaleString()+ '/n' +testjson);
+       sse.send(testjson);
       } 
     );
   console.log('get1 sse :'+sse);

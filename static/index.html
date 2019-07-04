@@ -2,18 +2,26 @@
 <html>
 <body>
 
-<h1>Getting server updates</h1>
+<h1>Channel List</h1>
 <div id="result"></div>
 
+
+<input type="button" value="users" onclick="gotochannel(this.value)">
+<input type="button" value="main" onclick="gotochannel(this.value)">
+
+
 <script>
-if(typeof(EventSource) !== "undefined") {
-  var source = new EventSource("/demo");
-  source.onmessage = function(event) {
-    document.getElementById("result").innerHTML += event.data + "<br>";
-  };
-} else {
-  document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
-}
+
+
+function gotochannel(val){
+
+    console.log(val);
+    if(typeof(val) !== "undefined") {
+        window.location = "stream.html?ch="+val;
+    }
+
+};
+
 </script>
 
 </body>

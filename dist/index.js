@@ -25,6 +25,7 @@ const source$ = new rxjs_1.Subject();
 source$.subscribe(console.log);
 app.get('/demo', (req, res) => {
     const sse = res.sse();
+    var testjson = '[{"userId":1,"userFirstName":"Isaac","userLastName":"Newton"},{"userId":2,"userFirstName":"Albert","userLastName":"Einstein"}]';
     console.log('get1 sse :' + sse);
     const conn$ = rxjs_1.interval(1000)
         .pipe(operators_1.map(String))
@@ -32,7 +33,9 @@ app.get('/demo', (req, res) => {
     //sse.send.bind(sse)
     (ev) => {
         console.log('get1 enew Date():' + new Date());
-        sse.send(new Date().toLocaleString());
+        console.log('testjson:' + testjson);
+        // sse.send(new Date().toLocaleString()+ '/n' +testjson);
+        sse.send(testjson);
     });
     console.log('get1 sse :' + sse);
     req.on('close', () => {
